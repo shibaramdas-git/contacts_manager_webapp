@@ -1,11 +1,7 @@
-import Contact from "./Contact";
+import Contact, { ContactType } from "./Contact";
 
-export type contactType = {
-  name: string;
-  imgUrl?: string;
-};
 export type groupedContactsType = {
-  [key: string]: contactType[];
+  [key: string]: ContactType[];
 };
 type ContactsDisplayProps = {
   data: groupedContactsType;
@@ -23,8 +19,12 @@ export default function ContactsDisplay(props: ContactsDisplayProps) {
             >
               <h2>{key}</h2>
 
-              {data[key].map((contact) => (
-                <Contact name={contact.name} imgUrl={contact.imgUrl} />
+              {data[key].map((contact, idx) => (
+                <Contact
+                  key={`${key}-${idx}`}
+                  name={contact.name}
+                  imgUrl={contact.imgUrl}
+                />
               ))}
             </div>
           );

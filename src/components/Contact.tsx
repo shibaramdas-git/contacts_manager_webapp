@@ -1,8 +1,8 @@
-export type ContactProps = {
+export type ContactType = {
   name: string;
   imgUrl?: string;
 };
-export default function Contact(props: ContactProps) {
+export default function Contact(props: ContactType) {
   const { name, imgUrl } = props;
   return (
     <div className="flex items-center gap-3">
